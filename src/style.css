@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background-color: #1e1e1e;
+  font: 500 15px/25px Source Code Pro, Consolas, Inconsolata, Droid Sans Mono,
+    Monaco, monospace;
+}
+
+button,
+a,
+i,
+p,
+span,
+div,
+strong,
+label,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Source Code Pro, Consolas, Inconsolata, Droid Sans Mono, Monaco,
+    monospace;
+}
+.toolbar {
+  border: 1px solid #383838;
+  border-top: 0;
+  border-bottom: 0;
+}

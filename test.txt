@@ -1,0 +1,1 @@
+"{\"options\":{\"mode\":\"offline\"},\"snippets\":{\"snippets\":{\"ADszr0H8lc\":{\"content\":\"// some comment\\nStore creato ciaone\",\"language\":\"js\",\"created_by\":\"x\",\"updated_by\":\"x\",\"uid\":\"ADszr0H8lc\",\"created_at\":\"2024-01-02T17:38:27.748Z\",\"updated_at\":\"2024-01-02T17:38:27.748Z\"}},\"isLoading\":true,\"errors\":false}}"
