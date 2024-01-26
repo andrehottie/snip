@@ -8,12 +8,12 @@ import { configureStore } from "./redux-modules/configureStore";
 import { useDispatch } from "react-redux";
 import {
   actionSnippetCreateRequest,
-  actionSnippetUpdateRequest,
+  actionSnippetUpdateRequest
 } from "./redux-modules/actions/actionsSnippet";
 import { TSnippet } from "./declarations/snippet";
 import {
   TActionSnippetCreateRequest,
-  TSnippetCreateRequest,
+  TSnippetCreateRequest
 } from "./redux-modules/declarations/actions/snippets";
 import { UIButton } from "./components/ui/Button";
 import SaveIcon from "@mui/icons-material/Save";
@@ -52,27 +52,17 @@ const App = () => {
         actionSnippetUpdateRequest({
           uid: currentSnippet.uid,
           content: editorRef.current.getValue(),
+          title: currentSnippet.title,
           language: "js",
           created_by: "x",
-          updated_by: "x",
+          updated_by: "x"
         })
       );
     }
-
-    /*
-    dispatch(
-      //@ts-ignore
-      actionSnippetCreateRequest({
-        content: editorRef.current.getValue(),
-        language: "js",
-        created_by: "x",
-        updated_by: "x",
-      } as TSnippetCreateRequest)
-    );*/
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} width={"100%"}>
       <Grid className={"browser"} xs={8}>
         <SnipEditor
           onMount={handleEditorDidMount}
@@ -93,7 +83,7 @@ const App = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "60px",
+            height: "60px"
           }}
           onClick={onSave}
         >
@@ -106,21 +96,21 @@ const App = () => {
               flexDirection: "row",
               fontSize: "8px",
               verticalAlign: "middle",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
           >
             <span
               style={{
                 fontSize: "10px",
                 marginRight: "3px",
-                display: "inline-flex",
+                display: "inline-flex"
               }}
             >
               <span
                 style={{
                   fontSize: "14px",
                   marginTop: "-2px",
-                  marginRight: "3px",
+                  marginRight: "3px"
                 }}
               >
                 ⌘
@@ -131,7 +121,7 @@ const App = () => {
               style={{
                 fontSize: "10px",
                 marginTop: "0px",
-                display: "inline-flex",
+                display: "inline-flex"
               }}
             >
               / Ctrl + S
@@ -141,8 +131,8 @@ const App = () => {
         <UIDivider />
       </Grid>
       <Grid className={"navigator"} xs={3}>
-        <UIFinderMenu />
-        {Object.values(snippets).map((s) => (
+        <UIFinderMenu currentEditorValue={editorRef?.current?.getValue()} />
+        {Object.values(snippets).map(s => (
           <UIFinderItem key={s.uid} snippet={s} id={s.uid} type="file" />
         ))}
         <Grid></Grid>
@@ -154,7 +144,11 @@ const App = () => {
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
-  },
+    background: {
+      default: "#1e1e1e",
+      paper: "#1e1e1e"
+    }
+  }
 });
 
 // After

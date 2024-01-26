@@ -12,7 +12,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { TSnippetCreateRequest } from "../../../redux-modules/declarations/actions/snippets";
-import { Select, MenuItem, Grid } from "@mui/material";
+import { Select, MenuItem, Grid, TextField } from "@mui/material";
 const options = [
   "abap",
   "apex",
@@ -93,7 +93,7 @@ const options = [
   "vb",
   "wgsl",
   "xml",
-  "yaml",
+  "yaml"
 ];
 
 const commonOptions = [
@@ -153,7 +153,7 @@ const commonOptions = [
   "vb",
   "wgsl",
   "xml",
-  "yaml",
+  "yaml"
 ];
 export interface CreateSnippetModalProps {
   id: string /*
@@ -171,9 +171,10 @@ export const CreateSnippetModal = (
   const [creatingSnippet, setCreatingSnippet] =
     React.useState<TSnippetCreateRequest>({
       language: "typescript",
+      title: "",
       content: "",
       created_by: "",
-      updated_by: "",
+      updated_by: ""
     });
 
   const handleCancel = () => {
@@ -187,7 +188,13 @@ export const CreateSnippetModal = (
   const handleChangeLanguage = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCreatingSnippet({
       ...creatingSnippet,
-      language: (event.target as HTMLInputElement).value,
+      language: (event.target as HTMLInputElement).value
+    });
+  };
+  const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCreatingSnippet({
+      ...creatingSnippet,
+      title: (event.target as HTMLInputElement).value
     });
   };
 
@@ -202,6 +209,16 @@ export const CreateSnippetModal = (
       <DialogContent dividers>
         <Grid container direction={"column"}>
           <Grid item>
+            <TextField
+              required
+              id="title"
+              label="Titolo"
+              defaultValue={creatingSnippet.title}
+              value={creatingSnippet.title}
+              onChange={handleChangeTitle}
+            />
+          </Grid>
+          <Grid item>
             <Select
               fullWidth
               defaultValue={"typescript"}
@@ -210,14 +227,13 @@ export const CreateSnippetModal = (
               //@ts-ignore
               onSelect={handleChangeLanguage}
             >
-              {commonOptions.map((option) => (
+              {commonOptions.map(option => (
                 <MenuItem value={option} key={option}>
                   {option.charAt(0).toLocaleUpperCase() + option.slice(1)}
                 </MenuItem>
               ))}
             </Select>
           </Grid>
-          <Grid item></Grid>
         </Grid>
       </DialogContent>
       <DialogActions>

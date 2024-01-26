@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import { Typography } from "@mui/joy";
 import {
   actionSetCurrentFileRequest,
-  actionSetCurrentPathRequest,
+  actionSetCurrentPathRequest
 } from "../../../redux-modules/actions/actionsOptions";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
@@ -13,7 +13,7 @@ import { TActionType } from "../../../redux-modules/declarations/actionTypes";
 import { useSelector } from "react-redux";
 import {
   selectorCurrentFile,
-  selectorCurrentPath,
+  selectorCurrentPath
 } from "../../../redux-modules/selectors/selectorOptions/seletorsFinder";
 
 export interface UIFinderItemProps {
@@ -26,7 +26,7 @@ export const UIFinderItem = ({
   snippet,
   onClick,
   type,
-  id,
+  id
 }: UIFinderItemProps): JSX.Element => {
   const currentSnippetID = useSelector(selectorCurrentFile);
   const currentSnippetPath = useSelector(selectorCurrentPath);
@@ -48,17 +48,18 @@ export const UIFinderItem = ({
   };
   return (
     <span onClick={handleClick}>
-      <Grid direction={"row"} style={{ width: "100%" }}>
+      <Grid direction={"row"} style={{ width: "100%" }} container>
         <Grid
+          item
           xs={12}
           justifyContent={"space-between"}
           display={"inline-flex"}
           style={{ width: "100%", height: "40px" }}
         >
-          <Typography>{snippet.uid}</Typography>
+          <Typography>{snippet.title}</Typography>
           <DeleteIcon>X</DeleteIcon>
         </Grid>
-        <Grid xs={12}></Grid>
+        <Grid xs={12} item></Grid>
       </Grid>
     </span>
   );

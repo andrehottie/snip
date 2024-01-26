@@ -7,6 +7,7 @@ export interface TEditor {
 
 export interface TSnippet {
   uid: string;
+  title: string;
   content: string;
   language: string;
   created_by: string;

@@ -6,6 +6,7 @@ import { TAction, TActionType } from "../actionTypes";
 
 export interface TSnippetList extends TListStringKey<TSnippet> {}
 export interface TSnippetCreateRequest {
+  title: string;
   content: string;
   language: string;
   created_by: string;
@@ -14,6 +15,7 @@ export interface TSnippetCreateRequest {
 }
 export interface TSnippetUpdateRequest {
   uid: string;
+  title: string;
   content: string;
   language: string;
   created_by: string;
